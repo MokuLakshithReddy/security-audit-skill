@@ -1,8 +1,29 @@
 # security-audit
 
+[![Stars](https://img.shields.io/github/stars/MokuLakshithReddy/security-audit-skill?style=flat-square)](https://github.com/MokuLakshithReddy/security-audit-skill/stargazers)
+[![Forks](https://img.shields.io/github/forks/MokuLakshithReddy/security-audit-skill?style=flat-square)](https://github.com/MokuLakshithReddy/security-audit-skill/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/MokuLakshithReddy/security-audit-skill?style=flat-square)](https://github.com/MokuLakshithReddy/security-audit-skill/commits/main)
+
+
 A coding-agent skill that turns your agent into a security auditor. It orchestrates isolated agents through reconnaissance, coverage-led hunting, candidate validation, structured output, independent record verification, and target-neutral reporting.
 
 This is the skill that seeded Cloudflare's vulnerability discovery harness, described in [Build your own vulnerability harness](https://blog.cloudflare.com/build-your-own-vulnerability-harness). The harness grew into a multi-stage, fleet-wide system; this skill is the single-repo starting point it evolved from.
+
+## Audit workflow
+
+```mermaid
+flowchart TD
+    T["Target and scope"] --> R["Reconnaissance"]
+    R --> C["Coverage-led investigation plan"]
+    C --> H["Isolated audit agents hunt for candidates"]
+    H --> V["Validate each candidate and reproduce evidence"]
+    V --> I["Independent record verification"]
+    I --> F["Structured findings with severity and proof"]
+    F --> P["Target-neutral report"]
+    V -->|Invalid / not reproducible| X["Discard or reclassify candidate"]
+```
+
+**Why it matters:** Security reviews are easy to overstate when exploratory signals are presented as confirmed vulnerabilities. The workflow separates discovery from independent validation and reporting so the final output is based on reproducible evidence.
 
 ## What it does
 
